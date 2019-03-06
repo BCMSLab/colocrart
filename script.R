@@ -23,7 +23,7 @@ if(!dir.exists(add_files)) {
 }
 # download image
 if(!file.exists('data/image.jpg')) {
-  download.file('https://gist.githubusercontent.com/MahShaaban/9ea55387fec4543326e9c2067a804fe8/raw/a8679cd764a3c80e934eddca852bbda7c73792f3/Image0004_.jpg',
+  download.file('https://github.com/BCMSLab/colocrart/raw/master/data/image.jpg',
                 destfile = 'data/image.jpg')
 }
 
@@ -89,7 +89,7 @@ img %>%
   rbind(c(mean(.$pcc), mean(.$moc), 'Average')) %>%
   select(roi, everything()) %>%
   setNames(c('ROI', 'PCC', 'MOC')) %>%
-  xtable(caption = 'Co-localization statistics.',
+  xtable(caption = '\\textbf{Co-localization statistics.}',
          align = 'cccc',
          label = 'tab:stat') %>%
   print(include.rownames = FALSE,
@@ -97,7 +97,7 @@ img %>%
         add.to.row = list(pos = list(3),
                           command = '\\midrule '),
         caption.placement = 'top',
-        table.placement = 'ht',
+        table.placement = 'H',
         sanitize.text.function = identity,
         comment = FALSE,
         file = paste(tab_dir, 'stat.tex', sep = '/'))
