@@ -21,14 +21,14 @@ if(!dir.exists(tab_dir)) {
 if(!dir.exists(add_files)) {
   dir.create(add_files)
 }
-# download image
-if(!file.exists('data/image.jpg')) {
-  download.file('https://github.com/BCMSLab/colocrart/raw/master/data/image.jpg',
-                destfile = 'data/image.jpg')
-}
+
+# get image path
+fl <- system.file('extdata', 'Image0003_.jpg', package = 'colocr')
+
+
 
 # load images and channels
-img <- image_load('data/image.jpg')
+img <- image_load(fl)
 img1 <- channel(img, 1)
 img2 <- channel(img, 2)
 
